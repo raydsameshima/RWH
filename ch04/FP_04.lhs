@@ -80,7 +80,24 @@ Explicitly, for [x1,x2,x3],
     = (f (f (f z x1) x2) x3)
     = foldl f z [x1,x2,x3]
 
-
+For the univarsal property of fold's, see the following:
+  http://www.cs.nott.ac.uk/~pszgmh/fold.pdf
+The consequence is the follwoing; if g is given by
+  g []     = v
+  g (x:xs) = f x (g xs)   
+then 
+  g = fold(r) f v
+and vice versa.
   
-                      
+> myAppend xs ys = foldr (:) ys xs                      
+
+  myAppend [1,2,3] [4,5,6]
+    = foldr (:) [4,5,6] [1,2,3]
+    = (:) 1 (foldr (:) [4,5,6] [2,3])
+    = (:) 1 ((:) 2 (foldr (:) [1,2,3] [3]))
+    = (:) 1 ((:) 2 ((:) 3 (foldr (:) [4,5,6] [])))
+    = (:) 1 ((:) 2 ((:) 3 ([4,5,6])))
+    = 1 : (2 : (3 : [4,5,6]))
+    = [1,2,3,4,5,6]
+
 
