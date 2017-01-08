@@ -7,7 +7,7 @@ Types and Functions
 
 on page 38 
 Further Reading
-There is a deep mathematical sense in which any nonpathological function of type 
+There is a deep mathematical sense in which any non pathological function of type 
   (a,b) -> a
 must do exactly what fst does.
 Moreover, this line of reasoning extends to more complicated polymorphic function.
